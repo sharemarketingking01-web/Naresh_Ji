@@ -4,729 +4,1130 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RHL Rummy – Win Real Cash Playing Rummy</title>
-<link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Display:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --gold: #F0B429;
-    --gold-dark: #B7831A;
-    --gold-light: #FDE68A;
-    --red: #C0392B;
-    --red-dark: #922B21;
-    --green: #1A7A4A;
-    --green-light: #27AE60;
-    --dark: #0D0D0D;
-    --dark2: #161616;
-    --dark3: #1F1F1F;
-    --dark4: #2A2A2A;
-    --text: #F5F0E8;
-    --muted: #A09880;
-    --font-head: 'Teko', sans-serif;
-    --font-body: 'DM Sans', sans-serif;
-  }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--dark);
-    color: var(--text);
-    font-family: var(--font-body);
-    overflow-x: hidden;
-  }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Roboto', 'Google Sans', sans-serif;
+  background: #f8f9fa;
+  color: #202124;
+  min-height: 100vh;
+}
 
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1rem 2rem;
-    background: rgba(13,13,13,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(240,180,41,0.15);
-  }
-  .nav-logo {
-    font-family: var(--font-head);
-    font-size: 2rem; letter-spacing: 2px;
-    color: var(--gold);
-    text-decoration: none;
-  }
-  .nav-logo span { color: var(--text); }
-  .nav-cta {
-    background: var(--gold);
-    color: var(--dark);
-    font-family: var(--font-body);
-    font-weight: 600;
-    font-size: 0.85rem;
-    padding: 0.55rem 1.4rem;
-    border-radius: 50px;
-    text-decoration: none;
-    letter-spacing: 0.5px;
-    transition: background 0.2s, transform 0.15s;
-  }
-  .nav-cta:hover { background: var(--gold-light); transform: scale(1.04); }
+/* ── TOP BAR ── */
+.topbar {
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 0 24px;
+  height: 56px;
+  display: flex; align-items: center; gap: 16px;
+  position: sticky; top: 0; z-index: 100;
+}
+.topbar-logo {
+  display: flex; align-items: center; gap: 8px;
+  text-decoration: none;
+}
+.topbar-logo svg { width: 24px; height: 24px; }
+.topbar-logo .ps-text {
+  font-family: 'Google Sans', sans-serif;
+  font-size: 1.1rem; font-weight: 400;
+  color: #5f6368;
+  letter-spacing: -0.3px;
+}
+.topbar-logo .ps-text b { color: #202124; font-weight: 500; }
+.topbar-search {
+  flex: 1; max-width: 480px; margin-left: auto;
+  position: relative;
+}
+.topbar-search input {
+  width: 100%; height: 40px;
+  background: #f1f3f4;
+  border: none; border-radius: 24px;
+  padding: 0 44px 0 16px;
+  font-size: 0.9rem; color: #202124;
+  outline: none;
+}
+.topbar-search svg {
+  position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+  color: #5f6368; pointer-events: none;
+}
+.topbar-avatar {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: #1a73e8;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.8rem; font-weight: 500; color: #fff;
+  margin-left: 12px; flex-shrink: 0;
+}
 
-  /* ── HERO ── */
-  .hero {
-    min-height: 100vh;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    text-align: center;
-    padding: 7rem 1.5rem 4rem;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero-bg {
-    position: absolute; inset: 0; z-index: 0;
-    background:
-      radial-gradient(ellipse 70% 50% at 50% 0%, rgba(240,180,41,0.08) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 30% at 80% 80%, rgba(192,57,43,0.07) 0%, transparent 60%),
-      repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(255,255,255,0.015) 60px, rgba(255,255,255,0.015) 61px),
-      repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(255,255,255,0.015) 60px, rgba(255,255,255,0.015) 61px);
-  }
-  .hero-badge {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    background: rgba(240,180,41,0.12);
-    border: 1px solid rgba(240,180,41,0.3);
-    color: var(--gold);
-    font-size: 0.78rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
-    padding: 0.4rem 1rem; border-radius: 50px;
-    margin-bottom: 1.5rem;
-    position: relative; z-index: 1;
-    animation: fadeUp 0.6s ease both;
-  }
-  .hero-badge::before {
-    content: ''; width: 7px; height: 7px; border-radius: 50%;
-    background: var(--gold); display: inline-block;
-    animation: pulse 2s infinite;
-  }
-  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.7)} }
+/* ── NAV TABS ── */
+.nav-tabs {
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex; gap: 0;
+  padding: 0 24px;
+  overflow-x: auto;
+}
+.nav-tab {
+  padding: 14px 20px;
+  font-size: 0.82rem; font-weight: 500;
+  color: #5f6368;
+  cursor: pointer;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s;
+  text-decoration: none;
+}
+.nav-tab.active { color: #1a73e8; border-bottom-color: #1a73e8; }
+.nav-tab:hover { color: #202124; }
 
-  .hero h1 {
-    font-family: var(--font-head);
-    font-size: clamp(3.5rem, 10vw, 7.5rem);
-    font-weight: 700;
-    line-height: 0.95;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--text);
-    position: relative; z-index: 1;
-    animation: fadeUp 0.7s 0.1s ease both;
-  }
-  .hero h1 .gold { color: var(--gold); }
-  .hero h1 .outline {
-    -webkit-text-stroke: 2px var(--gold);
-    color: transparent;
-  }
-  .hero-sub {
-    font-size: 1.15rem;
-    color: var(--muted);
-    max-width: 480px;
-    line-height: 1.7;
-    margin: 1.5rem auto 0;
-    position: relative; z-index: 1;
-    animation: fadeUp 0.7s 0.2s ease both;
-  }
-  .hero-bonus {
-    margin: 2rem 0;
-    display: inline-block;
-    background: linear-gradient(135deg, #C0392B, #E74C3C);
-    color: #fff;
-    font-family: var(--font-head);
-    font-size: 2.2rem;
-    letter-spacing: 2px;
-    padding: 0.6rem 2rem;
-    border-radius: 8px;
-    position: relative; z-index: 1;
-    animation: fadeUp 0.7s 0.3s ease both;
-  }
-  .hero-bonus small {
-    display: block;
-    font-family: var(--font-body);
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    opacity: 0.85;
-  }
-  .hero-btns {
-    display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
-    margin-top: 1rem;
-    position: relative; z-index: 1;
-    animation: fadeUp 0.7s 0.4s ease both;
-  }
-  .btn-primary {
-    display: flex; align-items: center; gap: 0.6rem;
-    background: var(--gold);
-    color: var(--dark);
-    font-weight: 700; font-size: 1rem;
-    padding: 0.9rem 2rem;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: transform 0.15s, background 0.2s;
-    letter-spacing: 0.3px;
-  }
-  .btn-primary:hover { transform: translateY(-2px) scale(1.03); background: var(--gold-light); }
-  .btn-secondary {
-    display: flex; align-items: center; gap: 0.6rem;
-    background: transparent;
-    color: var(--text);
-    font-weight: 600; font-size: 1rem;
-    padding: 0.9rem 2rem;
-    border-radius: 50px;
-    border: 1.5px solid rgba(255,255,255,0.2);
-    text-decoration: none;
-    transition: transform 0.15s, border-color 0.2s;
-  }
-  .btn-secondary:hover { transform: translateY(-2px); border-color: rgba(255,255,255,0.5); }
-  .btn-icon { width: 22px; height: 22px; }
+/* ── MAIN LAYOUT ── */
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 24px 60px;
+}
 
-  .hero-trust {
-    display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;
-    margin-top: 3rem;
-    position: relative; z-index: 1;
-    animation: fadeUp 0.7s 0.5s ease both;
-  }
-  .trust-item {
-    display: flex; align-items: center; gap: 0.5rem;
-    font-size: 0.82rem; color: var(--muted); font-weight: 500;
-  }
-  .trust-item svg { color: var(--gold); flex-shrink: 0; }
+/* ── APP HEADER ── */
+.app-header {
+  display: flex; gap: 20px; align-items: flex-start;
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+.app-icon {
+  width: 96px; height: 96px;
+  border-radius: 22px;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 50%, #2c1810 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 3.2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  position: relative;
+}
+.app-icon::after {
+  content: '';
+  position: absolute; inset: 0;
+  border-radius: 22px;
+  border: 1.5px solid rgba(255,255,255,0.12);
+}
+.app-info { flex: 1; min-width: 0; }
+.app-name {
+  font-family: 'Google Sans Display', 'Google Sans', sans-serif;
+  font-size: 1.6rem; font-weight: 700;
+  color: #202124; line-height: 1.2;
+  margin-bottom: 4px;
+}
+.app-name .rhl { color: #e8a000; }
+.app-dev {
+  font-size: 0.85rem; color: #1a73e8;
+  font-weight: 500; margin-bottom: 8px;
+  cursor: pointer;
+}
+.app-meta {
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.meta-item {
+  display: flex; flex-direction: column; align-items: center;
+  font-size: 0.75rem; color: #5f6368;
+  border-right: 1px solid #e0e0e0;
+  padding-right: 16px;
+}
+.meta-item:last-child { border-right: none; }
+.meta-val {
+  font-size: 0.92rem; font-weight: 600; color: #202124;
+  display: flex; align-items: center; gap: 3px;
+}
+.star-icon { color: #e8a000; font-size: 0.85rem; }
+.badge-verified {
+  background: #e6f4ea; color: #137333;
+  font-size: 0.7rem; font-weight: 500;
+  padding: 2px 8px; border-radius: 4px;
+  display: inline-flex; align-items: center; gap: 4px;
+}
+/* ── DOWNLOAD BUTTONS (above screenshots) ── */
+.download-row {
+  display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
+}
+.btn-install {
+  background: #1a73e8;
+  color: #fff;
+  border: none; border-radius: 24px;
+  padding: 0 28px; height: 42px;
+  font-size: 0.88rem; font-weight: 500;
+  cursor: pointer;
+  display: flex; align-items: center; gap: 8px;
+  transition: background 0.15s, box-shadow 0.15s;
+  letter-spacing: 0.2px;
+  text-decoration: none;
+}
+.btn-install:hover { background: #1765cc; box-shadow: 0 2px 8px rgba(26,115,232,0.4); }
+.btn-install.android { background: #34a853; }
+.btn-install.android:hover { background: #2d9248; box-shadow: 0 2px 8px rgba(52,168,83,0.4); }
+.btn-wishlist {
+  background: transparent;
+  color: #1a73e8;
+  border: 1.5px solid #dadce0;
+  border-radius: 24px;
+  padding: 0 20px; height: 42px;
+  font-size: 0.88rem; font-weight: 500;
+  cursor: pointer;
+  display: flex; align-items: center; gap: 6px;
+  transition: background 0.15s;
+}
+.btn-wishlist:hover { background: #f1f3f4; }
 
-  .hero-cards {
-    display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
-    margin-top: 4rem;
-    position: relative; z-index: 1;
-    animation: fadeUp 0.7s 0.6s ease both;
-  }
-  .card-float {
-    background: var(--dark3);
-    border: 1px solid rgba(240,180,41,0.2);
-    border-radius: 12px;
-    padding: 1rem 1.4rem;
-    text-align: center;
-    min-width: 120px;
-  }
-  .card-float .num {
-    font-family: var(--font-head);
-    font-size: 2rem;
-    color: var(--gold);
-    letter-spacing: 1px;
-    line-height: 1;
-  }
-  .card-float .lbl {
-    font-size: 0.72rem;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: 4px;
-  }
+/* ── BONUS CHIP ── */
+.bonus-chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: linear-gradient(90deg, #e8a000, #f4b400);
+  color: #202124;
+  border-radius: 24px;
+  padding: 6px 16px;
+  font-size: 0.82rem; font-weight: 700;
+  margin-top: 12px;
+  letter-spacing: 0.3px;
+  box-shadow: 0 2px 8px rgba(232,160,0,0.3);
+}
 
-  @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+/* ── SCREENSHOTS ── */
+.screenshots-section {
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px 0 20px 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+.screenshots-label {
+  font-size: 0.78rem; font-weight: 500; color: #5f6368;
+  text-transform: uppercase; letter-spacing: 0.8px;
+  margin-bottom: 14px; padding-right: 24px;
+}
+.screenshots-scroll {
+  display: flex; gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  padding-right: 24px;
+  scrollbar-width: thin;
+  scrollbar-color: #dadce0 transparent;
+  scroll-snap-type: x mandatory;
+}
+.screenshots-scroll::-webkit-scrollbar { height: 4px; }
+.screenshots-scroll::-webkit-scrollbar-track { background: transparent; }
+.screenshots-scroll::-webkit-scrollbar-thumb { background: #dadce0; border-radius: 2px; }
 
-  /* ── CARDS ── */
-  .playing-card {
-    width: 54px; height: 78px;
-    background: #fff;
-    border-radius: 6px;
-    display: inline-flex; align-items: center; justify-content: center;
-    font-family: var(--font-head);
-    font-size: 1.6rem;
-    font-weight: 700;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-    margin: 0 4px;
-    vertical-align: middle;
-    flex-shrink: 0;
-  }
-  .card-red { color: #C0392B; }
-  .card-black { color: #111; }
+.screenshot {
+  flex-shrink: 0;
+  width: 180px; height: 320px;
+  border-radius: 16px;
+  overflow: hidden;
+  scroll-snap-align: start;
+  position: relative;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+}
 
-  /* ── HOW IT WORKS ── */
-  .section { padding: 5rem 1.5rem; max-width: 1100px; margin: 0 auto; }
-  .section-tag {
-    font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;
-    color: var(--gold); font-weight: 600;
-    margin-bottom: 0.75rem;
-  }
-  .section-title {
-    font-family: var(--font-head);
-    font-size: clamp(2.2rem, 5vw, 3.5rem);
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    line-height: 1;
-    margin-bottom: 1rem;
-  }
-  .section-sub { color: var(--muted); max-width: 500px; line-height: 1.7; margin-bottom: 3rem; }
+/* Each screenshot is an illustrated card game scene */
+.ss-1 { background: linear-gradient(160deg, #0a0a0a 0%, #1c1c1c 40%, #0d2818 100%); }
+.ss-2 { background: linear-gradient(160deg, #0d0d2b 0%, #1a1a3d 50%, #0d1f0d 100%); }
+.ss-3 { background: linear-gradient(160deg, #1a0a00 0%, #2c1400 50%, #0a0a0a 100%); }
+.ss-4 { background: linear-gradient(160deg, #000d1a 0%, #001a33 50%, #001a0d 100%); }
+.ss-5 { background: linear-gradient(160deg, #1a001a 0%, #0d000d 50%, #001a1a 100%); }
+.ss-6 { background: linear-gradient(160deg, #0a1a00 0%, #1a2d00 50%, #001a0a 100%); }
 
-  .steps {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem;
-  }
-  .step {
-    background: var(--dark2);
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 16px;
-    padding: 2rem 1.5rem;
-    position: relative;
-    transition: border-color 0.2s, transform 0.2s;
-  }
-  .step:hover { border-color: rgba(240,180,41,0.3); transform: translateY(-4px); }
-  .step-num {
-    font-family: var(--font-head);
-    font-size: 4rem;
-    font-weight: 700;
-    color: rgba(240,180,41,0.12);
-    line-height: 1;
-    position: absolute; top: 1rem; right: 1.25rem;
-  }
-  .step-icon {
-    width: 48px; height: 48px;
-    background: rgba(240,180,41,0.12);
-    border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-  }
-  .step h3 {
-    font-family: var(--font-head);
-    font-size: 1.4rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 0.5rem;
-  }
-  .step p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+.ss-inner {
+  width: 100%; height: 100%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: space-between;
+  padding: 16px 10px;
+  position: relative;
+}
 
-  /* ── WHY RHL ── */
-  .features-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.25rem;
-  }
-  .feature-card {
-    background: var(--dark2);
-    border: 1px solid rgba(255,255,255,0.05);
-    border-radius: 16px;
-    padding: 1.75rem;
-    transition: border-color 0.2s, transform 0.2s;
-  }
-  .feature-card:hover { border-color: rgba(240,180,41,0.25); transform: translateY(-3px); }
-  .feature-card.highlight {
-    border-color: rgba(240,180,41,0.35);
-    background: linear-gradient(135deg, rgba(240,180,41,0.07), var(--dark2));
-  }
-  .feature-icon {
-    font-size: 2rem; margin-bottom: 1rem;
-    display: block;
-  }
-  .feature-card h3 {
-    font-family: var(--font-head);
-    font-size: 1.3rem; letter-spacing: 1px; text-transform: uppercase;
-    margin-bottom: 0.5rem;
-  }
-  .feature-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+/* Phone notch */
+.ss-notch {
+  width: 60px; height: 6px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 3px;
+  margin-bottom: 6px;
+  flex-shrink: 0;
+}
 
-  /* ── WITHDRAW ── */
-  .withdraw-section {
-    background: var(--dark2);
-    border-top: 1px solid rgba(255,255,255,0.05);
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-    padding: 5rem 1.5rem;
-  }
-  .withdraw-inner { max-width: 1100px; margin: 0 auto; }
-  .withdraw-methods {
-    display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem;
-  }
-  .method-pill {
-    background: var(--dark3);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 50px;
-    padding: 0.6rem 1.4rem;
-    font-size: 0.9rem; font-weight: 600;
-    display: flex; align-items: center; gap: 0.5rem;
-  }
-  .method-pill .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green-light); }
+.ss-top-label {
+  font-size: 0.55rem; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; color: rgba(255,255,255,0.5);
+  text-align: center;
+}
 
-  /* ── TESTIMONIALS ── */
-  .testimonials { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; }
-  .testi {
-    background: var(--dark2);
-    border: 1px solid rgba(255,255,255,0.05);
-    border-radius: 16px;
-    padding: 1.75rem;
-  }
-  .testi-stars { color: var(--gold); font-size: 1rem; margin-bottom: 0.75rem; letter-spacing: 3px; }
-  .testi-text { font-size: 0.9rem; color: var(--text); line-height: 1.7; margin-bottom: 1rem; font-style: italic; }
-  .testi-author { display: flex; align-items: center; gap: 0.75rem; }
-  .testi-avatar {
-    width: 38px; height: 38px; border-radius: 50%;
-    background: rgba(240,180,41,0.2);
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--font-head);
-    font-size: 1.1rem; color: var(--gold); font-weight: 600;
-    flex-shrink: 0;
-  }
-  .testi-name { font-size: 0.85rem; font-weight: 600; }
-  .testi-loc { font-size: 0.75rem; color: var(--muted); }
+/* Card table felt */
+.card-table {
+  width: 140px; height: 120px;
+  background: radial-gradient(ellipse at center, #1a6b3a 0%, #0f4a28 60%, #083318 100%);
+  border-radius: 12px;
+  border: 2px solid rgba(255,255,255,0.08);
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+}
 
-  /* ── LEGAL BADGE ── */
-  .legal-section {
-    max-width: 1100px; margin: 0 auto;
-    padding: 3rem 1.5rem;
-    display: flex; align-items: flex-start; gap: 1.5rem; flex-wrap: wrap;
-  }
-  .legal-badge {
-    display: flex; align-items: center; gap: 0.6rem;
-    background: rgba(39,174,96,0.1);
-    border: 1px solid rgba(39,174,96,0.3);
-    color: var(--green-light);
-    padding: 0.5rem 1rem; border-radius: 8px;
-    font-size: 0.8rem; font-weight: 600;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-  .legal-text { font-size: 0.8rem; color: var(--muted); line-height: 1.7; max-width: 700px; }
+/* Mini playing cards */
+.mini-card {
+  width: 28px; height: 40px;
+  background: #fff;
+  border-radius: 4px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  font-size: 0.55rem; font-weight: 700;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  position: absolute;
+  line-height: 1;
+}
+.mini-card .val { font-size: 0.7rem; }
+.mini-card .suit { font-size: 0.6rem; }
+.mc-red { color: #c0392b; }
+.mc-blk { color: #111; }
 
-  /* ── CTA BOTTOM ── */
-  .cta-bottom {
-    background: var(--dark2);
-    border-top: 1px solid rgba(240,180,41,0.1);
-    padding: 5rem 1.5rem;
-    text-align: center;
-  }
-  .cta-bottom h2 {
-    font-family: var(--font-head);
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
-    line-height: 1;
-    margin-bottom: 0.75rem;
-  }
-  .cta-bottom h2 span { color: var(--gold); }
-  .cta-bottom p { color: var(--muted); margin-bottom: 2rem; font-size: 1rem; }
+.ss-prize {
+  background: rgba(232,160,0,0.15);
+  border: 1px solid rgba(232,160,0,0.4);
+  border-radius: 8px;
+  padding: 6px 12px;
+  text-align: center;
+  width: 100%;
+}
+.ss-prize .amt {
+  font-size: 1rem; font-weight: 700; color: #f4b400;
+  line-height: 1;
+}
+.ss-prize .lbl { font-size: 0.5rem; color: rgba(255,255,255,0.5); letter-spacing: 0.5px; text-transform: uppercase; }
 
-  /* ── FOOTER ── */
-  footer {
-    background: #0A0A0A;
-    padding: 2rem 1.5rem;
-    text-align: center;
-    border-top: 1px solid rgba(255,255,255,0.05);
-  }
-  footer .f-logo {
-    font-family: var(--font-head);
-    font-size: 1.8rem; letter-spacing: 2px; color: var(--gold);
-    margin-bottom: 0.75rem;
-  }
-  footer .f-logo span { color: var(--text); }
-  footer p { font-size: 0.78rem; color: var(--muted); line-height: 1.6; max-width: 600px; margin: 0 auto 0.5rem; }
-  footer .f-links {
-    display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;
-    margin-top: 1rem;
-  }
-  footer .f-links a { font-size: 0.78rem; color: var(--muted); text-decoration: none; }
-  footer .f-links a:hover { color: var(--gold); }
+.ss-players {
+  display: flex; gap: 4px; justify-content: center;
+}
+.ss-player-dot {
+  width: 22px; height: 22px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.45rem; font-weight: 700; color: #fff;
+  border: 1.5px solid rgba(255,255,255,0.3);
+}
+.dp1 { background: #1a73e8; }
+.dp2 { background: #34a853; }
+.dp3 { background: #ea4335; }
+.dp4 { background: #9334e6; }
 
-  /* ── FLOATING DOWNLOAD ── */
-  .sticky-dl {
-    position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
-    z-index: 200;
-    display: flex; gap: 0.75rem;
-    background: rgba(13,13,13,0.95);
-    border: 1px solid rgba(240,180,41,0.3);
-    border-radius: 50px;
-    padding: 0.6rem 0.75rem;
-    backdrop-filter: blur(12px);
-    animation: slideUp 1s 1s ease both;
-  }
-  @keyframes slideUp { from{opacity:0;transform:translate(-50%,40px)} to{opacity:1;transform:translate(-50%,0)} }
-  .sticky-dl a {
-    display: flex; align-items: center; gap: 0.5rem;
-    background: var(--gold);
-    color: var(--dark);
-    font-weight: 700; font-size: 0.85rem;
-    padding: 0.55rem 1.2rem;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-  .sticky-dl a:last-child { background: var(--dark4); color: var(--text); border: 1px solid rgba(255,255,255,0.15); }
-  .sticky-dl a:hover { opacity: 0.9; }
+.ss-timer {
+  background: rgba(234,67,53,0.2);
+  border: 1px solid rgba(234,67,53,0.5);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 0.6rem; font-weight: 700; color: #ea4335;
+  letter-spacing: 1px;
+  text-align: center;
+}
 
-  /* ── DIVIDER ── */
-  .divider { border: none; border-top: 1px solid rgba(255,255,255,0.05); margin: 0; }
+.ss-hand {
+  display: flex; gap: 2px; justify-content: center;
+}
 
-  /* ── SCROLL ANIMATION ── */
-  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
-  .reveal.visible { opacity: 1; transform: none; }
+.ss-chip {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 20px;
+  padding: 3px 8px;
+  font-size: 0.5rem; color: rgba(255,255,255,0.7);
+  display: flex; align-items: center; gap: 3px;
+}
+.ss-chip .green-dot { width: 5px; height: 5px; border-radius: 50%; background: #34a853; }
+
+.ss-stat-row {
+  display: flex; gap: 6px; width: 100%;
+}
+.ss-stat {
+  flex: 1; background: rgba(255,255,255,0.05); border-radius: 6px;
+  padding: 5px; text-align: center;
+}
+.ss-stat .sv { font-size: 0.65rem; font-weight: 700; color: #f4b400; }
+.ss-stat .sl { font-size: 0.42rem; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.5px; }
+
+/* ── CONTENT BELOW SCREENSHOTS ── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 20px;
+  align-items: start;
+}
+@media (max-width: 860px) { .two-col { grid-template-columns: 1fr; } }
+
+/* ── ABOUT SECTION ── */
+.card-section {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  margin-bottom: 20px;
+}
+.section-heading {
+  font-family: 'Google Sans', sans-serif;
+  font-size: 1rem; font-weight: 500; color: #202124;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f1f3f4;
+}
+.about-text {
+  font-size: 0.88rem; color: #3c4043; line-height: 1.7;
+  margin-bottom: 12px;
+}
+.about-text b { color: #202124; font-weight: 500; }
+.read-more {
+  color: #1a73e8; font-size: 0.85rem; font-weight: 500;
+  cursor: pointer; background: none; border: none; padding: 0;
+}
+
+/* ── RATINGS ── */
+.rating-overview {
+  display: flex; gap: 32px; align-items: center; margin-bottom: 20px;
+}
+.rating-big {
+  text-align: center; flex-shrink: 0;
+}
+.rating-big .num {
+  font-size: 3rem; font-weight: 300; color: #202124; line-height: 1;
+}
+.rating-big .stars { color: #e8a000; font-size: 1rem; letter-spacing: 2px; }
+.rating-big .count { font-size: 0.75rem; color: #5f6368; margin-top: 2px; }
+.rating-bars { flex: 1; }
+.rating-bar-row {
+  display: flex; align-items: center; gap: 8px;
+  margin-bottom: 4px;
+}
+.bar-label { font-size: 0.75rem; color: #5f6368; width: 8px; flex-shrink: 0; }
+.bar-track {
+  flex: 1; height: 8px;
+  background: #f1f3f4; border-radius: 4px; overflow: hidden;
+}
+.bar-fill { height: 100%; background: #e8a000; border-radius: 4px; }
+
+/* ── REVIEWS ── */
+.review {
+  padding: 16px 0;
+  border-bottom: 1px solid #f1f3f4;
+}
+.review:last-child { border-bottom: none; padding-bottom: 0; }
+.review-top {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 6px;
+}
+.review-avatar {
+  width: 32px; height: 32px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.8rem; font-weight: 500; color: #fff;
+  flex-shrink: 0;
+}
+.review-name { font-size: 0.85rem; font-weight: 500; color: #202124; }
+.review-date { font-size: 0.75rem; color: #5f6368; margin-left: auto; }
+.review-stars { color: #e8a000; font-size: 0.75rem; letter-spacing: 1px; margin-bottom: 4px; }
+.review-text { font-size: 0.83rem; color: #3c4043; line-height: 1.6; }
+.review-helpful {
+  margin-top: 8px; font-size: 0.75rem; color: #5f6368;
+}
+.review-helpful button {
+  background: none; border: 1px solid #dadce0; border-radius: 4px;
+  padding: 3px 10px; font-size: 0.75rem; color: #3c4043;
+  cursor: pointer; margin-left: 8px;
+  transition: background 0.15s;
+}
+.review-helpful button:hover { background: #f1f3f4; }
+
+/* ── SIDEBAR ── */
+.sidebar-section {
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  margin-bottom: 20px;
+}
+.sidebar-section h3 {
+  font-family: 'Google Sans', sans-serif;
+  font-size: 0.9rem; font-weight: 500; color: #202124;
+  margin-bottom: 14px;
+}
+.info-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #f1f3f4;
+  font-size: 0.82rem;
+}
+.info-row:last-child { border-bottom: none; }
+.info-label { color: #5f6368; }
+.info-val { color: #202124; font-weight: 500; text-align: right; max-width: 160px; }
+
+/* Tags */
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.tag {
+  background: #f1f3f4; color: #3c4043;
+  border-radius: 16px; padding: 5px 12px;
+  font-size: 0.78rem; font-weight: 500;
+  cursor: pointer; transition: background 0.15s;
+}
+.tag:hover { background: #e8eaed; }
+
+/* ── SIMILAR APPS ── */
+.similar-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+}
+.sim-app {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  cursor: pointer; padding: 8px; border-radius: 12px;
+  transition: background 0.15s;
+}
+.sim-app:hover { background: #f1f3f4; }
+.sim-icon {
+  width: 56px; height: 56px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+}
+.sim-name { font-size: 0.72rem; text-align: center; color: #202124; font-weight: 500; }
+.sim-rating { font-size: 0.68rem; color: #5f6368; }
+
+/* ── WHAT'S NEW ── */
+.whats-new-version {
+  font-size: 0.78rem; color: #5f6368; margin-bottom: 8px;
+}
+.whats-new-list {
+  list-style: none; font-size: 0.85rem; color: #3c4043; line-height: 1.8;
+}
+.whats-new-list li::before { content: '• '; color: #1a73e8; font-weight: 700; }
+
+/* ── ACHIEVEMENTS ── */
+.achieve-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.achieve-card {
+  background: #f8f9fa;
+  border-radius: 10px; padding: 12px;
+  display: flex; gap: 10px; align-items: center;
+}
+.achieve-icon { font-size: 1.5rem; flex-shrink: 0; }
+.achieve-title { font-size: 0.78rem; font-weight: 500; color: #202124; }
+.achieve-sub { font-size: 0.7rem; color: #5f6368; }
+
+/* ── FOOTER ── */
+.page-footer {
+  background: #fff;
+  border-top: 1px solid #e0e0e0;
+  padding: 20px 24px;
+  text-align: center;
+  margin-top: 20px;
+}
+.footer-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 8px; }
+.footer-links a { font-size: 0.78rem; color: #5f6368; text-decoration: none; }
+.footer-links a:hover { color: #1a73e8; }
+.footer-legal { font-size: 0.72rem; color: #9aa0a6; max-width: 600px; margin: 0 auto; line-height: 1.6; }
+
+/* ── INSTALL OVERLAY ON SCROLL ── */
+.install-bar {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
+  background: #fff;
+  border-top: 1px solid #e0e0e0;
+  padding: 12px 24px;
+  display: flex; align-items: center; gap: 16px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.08);
+}
+.install-bar.show { transform: translateY(0); }
+.install-bar-icon { width: 40px; height: 40px; border-radius: 10px; background: #0d0d0d; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+.install-bar-info { flex: 1; }
+.install-bar-name { font-size: 0.88rem; font-weight: 500; color: #202124; }
+.install-bar-sub { font-size: 0.75rem; color: #5f6368; }
+.install-bar-btns { display: flex; gap: 8px; }
+
+/* scroll reveal */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.reveal.visible { opacity: 1; transform: none; }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">RHL <span>Rummy</span></a>
-  <a href="#download" class="nav-cta">Download Free →</a>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-bg"></div>
-
-  <div class="hero-badge">
-    <span>100% Legal Skill Game · India's Fastest Growing Rummy App</span>
+<!-- TOP BAR -->
+<div class="topbar">
+  <a href="#" class="topbar-logo">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h7v7H4V4zm9 0h7v7h-7V4zM4 13h7v7H4v-7zm9 3h2v-2h2v2h2v2h-2v2h-2v-2h-2v-2z" fill="#1a73e8"/></svg>
+    <span class="ps-text"><b>Google Play</b></span>
+  </a>
+  <div class="topbar-search">
+    <input type="text" placeholder="Search apps & games" value="RHL Rummy">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
   </div>
-
-  <h1>
-    Play <span class="gold">Rummy.</span><br>
-    Win <span class="outline">Real</span> Cash.
-  </h1>
-
-  <p class="hero-sub">
-    Challenge real players across India. Sharpen your skills, climb the leaderboard, and withdraw your winnings instantly to UPI.
-  </p>
-
-  <div class="hero-bonus">
-    ₹500 Welcome Bonus
-    <small>on your first deposit · no hidden charges</small>
-  </div>
-
-  <div class="hero-btns" id="download">
-    <a href="#" class="btn-primary">
-      <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.7 9.05 7.42c1.42.07 2.41.74 3.24.8 1.23-.24 2.41-.93 3.73-.84 1.58.13 2.77.71 3.54 1.8-3.24 1.94-2.7 6.11.5 7.27-.57 1.46-1.3 2.91-3.01 3.83zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
-      App Store
-    </a>
-    <a href="#" class="btn-primary" style="background: var(--dark4); color: var(--text); border: 1.5px solid rgba(240,180,41,0.3);">
-      <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76a2.17 2.17 0 0 1-.59-1.58V1.82A2.17 2.17 0 0 1 3.18.24L3.27.18l12.29 12.29v.08L3.27 24.06l-.09-.3zM20.03 16.2l-3.24-3.24 1.07-1.07 3.52 2.03a1.26 1.26 0 0 1 0 2.21l-3.52 2.03-1.08-1.08 3.25-1.88zM3.45 24.06L15.76 11.76l2.23 2.23-11 6.35c-.6.34-1.26.27-1.69-.1l-.02-.01zM17.99 10.01L15.76 12.24 3.45.06l.12-.09c.43-.37 1.09-.44 1.7-.1l12.72 10.14z"/></svg>
-      Google Play
-    </a>
-  </div>
-
-  <div class="hero-trust">
-    <div class="trust-item">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      100% Safe & Secure
-    </div>
-    <div class="trust-item">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-      Verified Legal Skill Game
-    </div>
-    <div class="trust-item">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      Instant UPI Withdrawal
-    </div>
-    <div class="trust-item">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-      50,000+ Players
-    </div>
-  </div>
-
-  <div class="hero-cards">
-    <div class="card-float">
-      <div class="num">₹2Cr+</div>
-      <div class="lbl">Paid Out Weekly</div>
-    </div>
-    <div class="card-float">
-      <div class="num">50K+</div>
-      <div class="lbl">Active Players</div>
-    </div>
-    <div class="card-float">
-      <div class="num">4.8★</div>
-      <div class="lbl">App Rating</div>
-    </div>
-    <div class="card-float">
-      <div class="num">&lt;5min</div>
-      <div class="lbl">Instant Withdrawal</div>
-    </div>
-  </div>
-</section>
-
-<hr class="divider">
-
-<!-- HOW IT WORKS -->
-<div class="section reveal">
-  <p class="section-tag">How it works</p>
-  <h2 class="section-title">Start Winning<br><span style="color:var(--gold)">in 3 Steps</span></h2>
-  <p class="section-sub">Getting started on RHL Rummy takes less than 2 minutes. Download, add cash, and start playing.</p>
-
-  <div class="steps">
-    <div class="step">
-      <div class="step-num">01</div>
-      <div class="step-icon">📲</div>
-      <h3>Download the App</h3>
-      <p>Available on Android and iOS. Free to download. Set up your account in under 60 seconds with just your phone number.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">02</div>
-      <div class="step-icon">💰</div>
-      <h3>Add Cash & Get Bonus</h3>
-      <p>Deposit using UPI, Paytm, PhonePe, or any bank. Your ₹500 welcome bonus is credited instantly on your first deposit.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">03</div>
-      <div class="step-icon">🃏</div>
-      <h3>Play & Win</h3>
-      <p>Choose from Points Rummy, Deals Rummy, or Pool Rummy. Win cash and withdraw to your bank account in minutes.</p>
-    </div>
-  </div>
+  <div class="topbar-avatar">U</div>
 </div>
 
-<hr class="divider">
-
-<!-- WHY RHL -->
-<div class="section reveal">
-  <p class="section-tag">Why RHL Rummy</p>
-  <h2 class="section-title">Built for<br><span style="color:var(--gold)">Real Players</span></h2>
-  <p class="section-sub">We built everything you want and nothing you don't. Fair play. Real cash. Instant payouts.</p>
-
-  <div class="features-grid">
-    <div class="feature-card highlight">
-      <span class="feature-icon">⚡</span>
-      <h3>Instant Withdrawals</h3>
-      <p>Your winnings reach your UPI in under 5 minutes, 24/7. No delays, no waiting, no excuses — just your money, fast.</p>
-    </div>
-    <div class="feature-card">
-      <span class="feature-icon">🛡️</span>
-      <h3>Anti-Cheat Protection</h3>
-      <p>Advanced AI monitors every game for bots and collusion. You play only against real, verified human players.</p>
-    </div>
-    <div class="feature-card">
-      <span class="feature-icon">🏆</span>
-      <h3>Daily Tournaments</h3>
-      <p>Compete in ₹10 to ₹10,000 buy-in tournaments every day. Massive prize pools up to ₹25 Lakh every week.</p>
-    </div>
-    <div class="feature-card">
-      <span class="feature-icon">🎮</span>
-      <h3>3 Game Formats</h3>
-      <p>Points Rummy, Deals Rummy, and Pool Rummy — with tables for every skill level and every budget.</p>
-    </div>
-    <div class="feature-card">
-      <span class="feature-icon">🤝</span>
-      <h3>Refer & Earn ₹200</h3>
-      <p>Invite a friend to RHL Rummy and earn ₹200 cash when they make their first deposit. No limit on referrals.</p>
-    </div>
-    <div class="feature-card">
-      <span class="feature-icon">🎧</span>
-      <h3>24/7 Support</h3>
-      <p>Real humans available on chat, WhatsApp, and phone round the clock. Your issues get resolved, not ignored.</p>
-    </div>
-  </div>
+<!-- NAV TABS -->
+<div class="nav-tabs">
+  <a class="nav-tab" href="#">Home</a>
+  <a class="nav-tab" href="#">Top charts</a>
+  <a class="nav-tab active" href="#">Games</a>
+  <a class="nav-tab" href="#">Apps</a>
+  <a class="nav-tab" href="#">Movies</a>
+  <a class="nav-tab" href="#">Books</a>
+  <a class="nav-tab" href="#">Kids</a>
 </div>
 
-<!-- WITHDRAW SECTION -->
-<div class="withdraw-section reveal">
-  <div class="withdraw-inner">
-    <p class="section-tag">Withdrawals</p>
-    <h2 class="section-title">Your Money,<br><span style="color:var(--gold)">Your Way</span></h2>
-    <p class="section-sub">Withdraw your winnings to any payment method in under 5 minutes. No forms, no waiting period.</p>
-    <div class="withdraw-methods">
-      <div class="method-pill"><div class="dot"></div> UPI</div>
-      <div class="method-pill"><div class="dot"></div> PhonePe</div>
-      <div class="method-pill"><div class="dot"></div> Google Pay</div>
-      <div class="method-pill"><div class="dot"></div> Paytm</div>
-      <div class="method-pill"><div class="dot"></div> Bank Transfer</div>
-      <div class="method-pill"><div class="dot"></div> IMPS</div>
+<!-- MAIN -->
+<div class="main">
+
+  <!-- APP HEADER -->
+  <div class="app-header">
+    <div class="app-icon">🃏</div>
+    <div class="app-info">
+      <div class="app-name"><span class="rhl">RHL</span> Rummy</div>
+      <div class="app-dev">RHL Games Pvt. Ltd.</div>
+      <div class="app-meta">
+        <div class="meta-item">
+          <div class="meta-val"><span class="star-icon">★</span> 4.8</div>
+          <div>1.2L reviews</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-val">10L+</div>
+          <div>Downloads</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-val" style="color:#1a73e8">18+</div>
+          <div>Rated for</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-val">Free</div>
+          <div>Price</div>
+        </div>
+      </div>
+
+      <!-- DOWNLOAD BUTTONS — ABOVE SCREENSHOTS -->
+      <div class="download-row">
+        <a href="#" class="btn-install android">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76a2.17 2.17 0 0 1-.59-1.58V1.82A2.17 2.17 0 0 1 3.18.24L3.27.18l12.29 12.29v.08L3.27 24.06l-.09-.3zM20.03 16.2l-3.24-3.24 1.07-1.07 3.52 2.03a1.26 1.26 0 0 1 0 2.21l-3.52 2.03-1.08-1.08 3.25-1.88zM3.45 24.06L15.76 11.76l2.23 2.23-11 6.35c-.6.34-1.26.27-1.69-.1l-.02-.01zM17.99 10.01L15.76 12.24 3.45.06l.12-.09c.43-.37 1.09-.44 1.7-.1l12.72 10.14z"/></svg>
+          Install on Android
+        </a>
+        <a href="#" class="btn-install">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.7 9.05 7.42c1.42.07 2.41.74 3.24.8 1.23-.24 2.41-.93 3.73-.84 1.58.13 2.77.71 3.54 1.8-3.24 1.94-2.7 6.11.5 7.27-.57 1.46-1.3 2.91-3.01 3.83zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+          Get on App Store
+        </a>
+        <button class="btn-wishlist">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          Wishlist
+        </button>
+      </div>
+
+      <div class="bonus-chip">🎁 ₹500 Welcome Bonus on First Deposit</div>
     </div>
   </div>
-</div>
 
-<!-- TESTIMONIALS -->
-<div class="section reveal">
-  <p class="section-tag">Player Reviews</p>
-  <h2 class="section-title">Real Players,<br><span style="color:var(--gold)">Real Wins</span></h2>
-  <p class="section-sub">Don't take our word for it. Here's what RHL Rummy players say.</p>
+  <!-- SCREENSHOTS — 6 COLOSSAL IMAGES -->
+  <div class="screenshots-section reveal">
+    <div class="screenshots-label">Screenshots</div>
+    <div class="screenshots-scroll">
 
-  <div class="testimonials">
-    <div class="testi">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">"Withdrew ₹8,400 to my UPI in literally 3 minutes. I was shocked. Never seen such fast payouts in any app. RHL is the real deal."</p>
-      <div class="testi-author">
-        <div class="testi-avatar">RK</div>
-        <div>
-          <div class="testi-name">Rajesh K.</div>
-          <div class="testi-loc">Jaipur, Rajasthan</div>
+      <!-- SS 1: Main Game Table -->
+      <div class="screenshot ss-1">
+        <div class="ss-inner">
+          <div class="ss-notch"></div>
+          <div class="ss-top-label">Live Table · ₹500 Entry</div>
+          <div class="ss-chip"><div class="green-dot"></div> 4 Players Active</div>
+          <div class="card-table">
+            <div class="mini-card mc-red" style="left:20px;top:15px;transform:rotate(-15deg)"><div class="val">A</div><div class="suit">♥</div></div>
+            <div class="mini-card mc-blk" style="left:52px;top:8px;transform:rotate(-5deg)"><div class="val">K</div><div class="suit">♠</div></div>
+            <div class="mini-card mc-red" style="left:84px;top:12px;transform:rotate(10deg)"><div class="val">Q</div><div class="suit">♦</div></div>
+            <div class="mini-card mc-blk" style="left:66px;top:50px;transform:rotate(-8deg)"><div class="val">J</div><div class="suit">♣</div></div>
+            <div class="mini-card mc-red" style="left:34px;top:55px;transform:rotate(5deg)"><div class="val">10</div><div class="suit">♥</div></div>
+          </div>
+          <div class="ss-timer">⏱ 00:28</div>
+          <div class="ss-hand">
+            <div class="mini-card mc-red" style="position:relative;transform:rotate(-12deg)"><div class="val">7</div><div class="suit">♥</div></div>
+            <div class="mini-card mc-blk" style="position:relative;transform:rotate(-4deg)"><div class="val">8</div><div class="suit">♠</div></div>
+            <div class="mini-card mc-red" style="position:relative;transform:rotate(4deg)"><div class="val">9</div><div class="suit">♦</div></div>
+            <div class="mini-card mc-blk" style="position:relative;transform:rotate(12deg)"><div class="val">10</div><div class="suit">♣</div></div>
+          </div>
+          <div class="ss-players">
+            <div class="ss-player-dot dp1">RK</div>
+            <div class="ss-player-dot dp2">PM</div>
+            <div class="ss-player-dot dp3">AS</div>
+            <div class="ss-player-dot dp4">VR</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SS 2: Tournament Lobby -->
+      <div class="screenshot ss-2">
+        <div class="ss-inner">
+          <div class="ss-notch"></div>
+          <div class="ss-top-label">Tournaments</div>
+          <div style="width:100%">
+            <div style="font-size:0.55rem;color:rgba(255,255,255,0.4);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px">Today's Mega Tournament</div>
+            <div class="ss-prize"><div class="amt">₹25 Lakh</div><div class="lbl">Prize Pool</div></div>
+          </div>
+          <div style="width:100%">
+            <div style="font-size:0.5rem;color:rgba(255,255,255,0.35);margin-bottom:4px;text-transform:uppercase">Active Tables</div>
+            <div style="display:flex;flex-direction:column;gap:4px;width:100%">
+              <div style="background:rgba(255,255,255,0.06);border-radius:6px;padding:5px 8px;display:flex;justify-content:space-between;align-items:center">
+                <span style="font-size:0.55rem;color:rgba(255,255,255,0.7)">Points · ₹10</span>
+                <span style="font-size:0.55rem;color:#34a853;font-weight:600">JOIN</span>
+              </div>
+              <div style="background:rgba(255,255,255,0.06);border-radius:6px;padding:5px 8px;display:flex;justify-content:space-between;align-items:center">
+                <span style="font-size:0.55rem;color:rgba(255,255,255,0.7)">Deals · ₹50</span>
+                <span style="font-size:0.55rem;color:#34a853;font-weight:600">JOIN</span>
+              </div>
+              <div style="background:rgba(255,255,255,0.06);border-radius:6px;padding:5px 8px;display:flex;justify-content:space-between;align-items:center">
+                <span style="font-size:0.55rem;color:rgba(255,255,255,0.7)">Pool · ₹200</span>
+                <span style="font-size:0.55rem;color:#f4b400;font-weight:600">2 SEATS</span>
+              </div>
+              <div style="background:rgba(255,255,255,0.06);border-radius:6px;padding:5px 8px;display:flex;justify-content:space-between;align-items:center">
+                <span style="font-size:0.55rem;color:rgba(255,255,255,0.7)">VIP · ₹1000</span>
+                <span style="font-size:0.55rem;color:#ea4335;font-weight:600">FULL</span>
+              </div>
+            </div>
+          </div>
+          <div class="ss-stat-row">
+            <div class="ss-stat"><div class="sv">50K+</div><div class="sl">Players</div></div>
+            <div class="ss-stat"><div class="sv">4.8★</div><div class="sl">Rating</div></div>
+            <div class="ss-stat"><div class="sv">24/7</div><div class="sl">Live</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SS 3: Win Screen -->
+      <div class="screenshot ss-3">
+        <div class="ss-inner">
+          <div class="ss-notch"></div>
+          <div style="text-align:center">
+            <div style="font-size:1.6rem;margin-bottom:4px">🏆</div>
+            <div style="font-family:sans-serif;font-size:0.7rem;font-weight:700;color:#f4b400;letter-spacing:1px;text-transform:uppercase">You Win!</div>
+          </div>
+          <div style="text-align:center;background:rgba(244,180,0,0.1);border:1px solid rgba(244,180,0,0.3);border-radius:12px;padding:12px;width:100%">
+            <div style="font-size:0.45rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px">Cash Won</div>
+            <div style="font-size:1.4rem;font-weight:700;color:#f4b400;line-height:1">₹4,200</div>
+            <div style="font-size:0.45rem;color:rgba(255,255,255,0.3);margin-top:4px">Added to your wallet</div>
+          </div>
+          <div style="width:100%">
+            <div style="font-size:0.45rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px">Game Summary</div>
+            <div style="display:flex;flex-direction:column;gap:3px;width:100%">
+              <div style="display:flex;justify-content:space-between;font-size:0.5rem"><span style="color:rgba(255,255,255,0.5)">Winning Hand</span><span style="color:#34a853;font-weight:600">Pure Sequence</span></div>
+              <div style="display:flex;justify-content:space-between;font-size:0.5rem"><span style="color:rgba(255,255,255,0.5)">Points</span><span style="color:#fff;font-weight:600">0</span></div>
+              <div style="display:flex;justify-content:space-between;font-size:0.5rem"><span style="color:rgba(255,255,255,0.5)">Opponents</span><span style="color:#ea4335;font-weight:600">82 pts</span></div>
+              <div style="display:flex;justify-content:space-between;font-size:0.5rem"><span style="color:rgba(255,255,255,0.5)">Duration</span><span style="color:#fff;font-weight:600">8m 22s</span></div>
+            </div>
+          </div>
+          <div style="display:flex;gap:6px;width:100%">
+            <div style="flex:1;background:#1a73e8;border-radius:16px;padding:5px;text-align:center;font-size:0.55rem;font-weight:600;color:#fff;cursor:pointer">Play Again</div>
+            <div style="flex:1;background:rgba(255,255,255,0.1);border-radius:16px;padding:5px;text-align:center;font-size:0.55rem;font-weight:500;color:rgba(255,255,255,0.7);cursor:pointer">Withdraw</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SS 4: Wallet -->
+      <div class="screenshot ss-4">
+        <div class="ss-inner">
+          <div class="ss-notch"></div>
+          <div class="ss-top-label">My Wallet</div>
+          <div style="text-align:center;width:100%;background:linear-gradient(135deg,rgba(26,115,232,0.2),rgba(26,115,232,0.05));border:1px solid rgba(26,115,232,0.3);border-radius:12px;padding:14px">
+            <div style="font-size:0.45rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px">Total Balance</div>
+            <div style="font-size:1.6rem;font-weight:700;color:#fff;line-height:1">₹12,480</div>
+            <div style="display:flex;gap:8px;justify-content:center;margin-top:8px">
+              <div style="background:rgba(255,255,255,0.08);border-radius:8px;padding:4px 8px;font-size:0.45rem;color:rgba(255,255,255,0.6)">Winnings: ₹9,200</div>
+              <div style="background:rgba(255,255,255,0.08);border-radius:8px;padding:4px 8px;font-size:0.45rem;color:rgba(255,255,255,0.6)">Bonus: ₹3,280</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:6px;width:100%">
+            <div style="flex:1;background:#34a853;border-radius:10px;padding:8px;text-align:center">
+              <div style="font-size:0.85rem">💳</div>
+              <div style="font-size:0.5rem;font-weight:600;color:#fff;margin-top:2px">Add Cash</div>
+            </div>
+            <div style="flex:1;background:rgba(255,255,255,0.08);border-radius:10px;padding:8px;text-align:center">
+              <div style="font-size:0.85rem">🏦</div>
+              <div style="font-size:0.5rem;font-weight:600;color:rgba(255,255,255,0.8);margin-top:2px">Withdraw</div>
+            </div>
+            <div style="flex:1;background:rgba(255,255,255,0.08);border-radius:10px;padding:8px;text-align:center">
+              <div style="font-size:0.85rem">📊</div>
+              <div style="font-size:0.5rem;font-weight:600;color:rgba(255,255,255,0.8);margin-top:2px">History</div>
+            </div>
+          </div>
+          <div style="width:100%">
+            <div style="font-size:0.45rem;color:rgba(255,255,255,0.3);text-transform:uppercase;margin-bottom:6px">Recent Transactions</div>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.04);border-radius:6px;padding:5px 8px">
+                <div><div style="font-size:0.5rem;color:rgba(255,255,255,0.7)">Won - Points Rummy</div><div style="font-size:0.42rem;color:rgba(255,255,255,0.3)">Today 3:42 PM</div></div>
+                <div style="font-size:0.55rem;font-weight:600;color:#34a853">+₹820</div>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.04);border-radius:6px;padding:5px 8px">
+                <div><div style="font-size:0.5rem;color:rgba(255,255,255,0.7)">Withdrawal - UPI</div><div style="font-size:0.42rem;color:rgba(255,255,255,0.3)">Yesterday</div></div>
+                <div style="font-size:0.55rem;font-weight:600;color:#ea4335">-₹5,000</div>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.04);border-radius:6px;padding:5px 8px">
+                <div><div style="font-size:0.5rem;color:rgba(255,255,255,0.7)">Won - Tournament</div><div style="font-size:0.42rem;color:rgba(255,255,255,0.3)">2 days ago</div></div>
+                <div style="font-size:0.55rem;font-weight:600;color:#34a853">+₹4,200</div>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;gap:4px;align-items:center;background:rgba(52,168,83,0.1);border:1px solid rgba(52,168,83,0.3);border-radius:8px;padding:5px 8px;width:100%">
+            <span style="font-size:0.7rem">⚡</span>
+            <span style="font-size:0.48rem;color:#34a853;font-weight:500">Instant UPI Withdrawal · Under 5 minutes</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SS 5: Leaderboard -->
+      <div class="screenshot ss-5">
+        <div class="ss-inner">
+          <div class="ss-notch"></div>
+          <div class="ss-top-label">Leaderboard</div>
+          <div style="text-align:center">
+            <div style="font-size:1.2rem">👑</div>
+            <div style="font-size:0.55rem;font-weight:700;color:#f4b400;letter-spacing:1px">Weekly Champions</div>
+          </div>
+          <div style="width:100%;display:flex;flex-direction:column;gap:3px">
+            <div style="display:flex;align-items:center;gap:6px;background:rgba(244,180,0,0.12);border:1px solid rgba(244,180,0,0.3);border-radius:8px;padding:6px 8px">
+              <div style="font-size:0.65rem;font-weight:700;color:#f4b400;width:14px">1</div>
+              <div style="width:20px;height:20px;border-radius:50%;background:#1a73e8;display:flex;align-items:center;justify-content:center;font-size:0.45rem;font-weight:600;color:#fff">RK</div>
+              <div style="flex:1"><div style="font-size:0.52rem;color:#fff;font-weight:500">Rajesh K.</div><div style="font-size:0.42rem;color:rgba(255,255,255,0.4)">Jaipur</div></div>
+              <div style="font-size:0.55rem;font-weight:700;color:#f4b400">₹82,400</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.05);border-radius:8px;padding:6px 8px">
+              <div style="font-size:0.65rem;font-weight:700;color:#9aa0a6;width:14px">2</div>
+              <div style="width:20px;height:20px;border-radius:50%;background:#34a853;display:flex;align-items:center;justify-content:center;font-size:0.45rem;font-weight:600;color:#fff">PM</div>
+              <div style="flex:1"><div style="font-size:0.52rem;color:#fff;font-weight:500">Priya M.</div><div style="font-size:0.42rem;color:rgba(255,255,255,0.4)">Ahmedabad</div></div>
+              <div style="font-size:0.55rem;font-weight:700;color:#fff">₹61,200</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.05);border-radius:8px;padding:6px 8px">
+              <div style="font-size:0.65rem;font-weight:700;color:#cd7f32;width:14px">3</div>
+              <div style="width:20px;height:20px;border-radius:50%;background:#ea4335;display:flex;align-items:center;justify-content:center;font-size:0.45rem;font-weight:600;color:#fff">AS</div>
+              <div style="flex:1"><div style="font-size:0.52rem;color:#fff;font-weight:500">Arjun S.</div><div style="font-size:0.42rem;color:rgba(255,255,255,0.4)">Indore</div></div>
+              <div style="font-size:0.55rem;font-weight:700;color:#fff">₹44,800</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.05);border-radius:8px;padding:6px 8px">
+              <div style="font-size:0.65rem;font-weight:700;color:rgba(255,255,255,0.3);width:14px">4</div>
+              <div style="width:20px;height:20px;border-radius:50%;background:#9334e6;display:flex;align-items:center;justify-content:center;font-size:0.45rem;font-weight:600;color:#fff">VR</div>
+              <div style="flex:1"><div style="font-size:0.52rem;color:#fff;font-weight:500">Vishal R.</div><div style="font-size:0.42rem;color:rgba(255,255,255,0.4)">Delhi</div></div>
+              <div style="font-size:0.55rem;font-weight:700;color:#fff">₹38,100</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.05);border-radius:8px;padding:6px 8px">
+              <div style="font-size:0.65rem;font-weight:700;color:rgba(255,255,255,0.3);width:14px">5</div>
+              <div style="width:20px;height:20px;border-radius:50%;background:#f9ab00;display:flex;align-items:center;justify-content:center;font-size:0.45rem;font-weight:600;color:#fff">SK</div>
+              <div style="flex:1"><div style="font-size:0.52rem;color:#fff;font-weight:500">Sneha K.</div><div style="font-size:0.42rem;color:rgba(255,255,255,0.4)">Pune</div></div>
+              <div style="font-size:0.55rem;font-weight:700;color:#fff">₹29,600</div>
+            </div>
+          </div>
+          <div style="background:rgba(26,115,232,0.15);border:1px solid rgba(26,115,232,0.3);border-radius:8px;padding:5px 10px;text-align:center;width:100%">
+            <div style="font-size:0.48rem;color:rgba(255,255,255,0.5)">Your Rank</div>
+            <div style="font-size:0.65rem;font-weight:700;color:#1a73e8">#142 · ₹3,200</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SS 6: Refer & Earn -->
+      <div class="screenshot ss-6">
+        <div class="ss-inner">
+          <div class="ss-notch"></div>
+          <div style="text-align:center">
+            <div style="font-size:1.4rem;margin-bottom:4px">🎁</div>
+            <div style="font-size:0.65rem;font-weight:700;color:#f4b400;letter-spacing:0.5px">Refer & Earn</div>
+          </div>
+          <div style="background:rgba(244,180,0,0.1);border:1px solid rgba(244,180,0,0.3);border-radius:12px;padding:12px;text-align:center;width:100%">
+            <div style="font-size:0.42rem;color:rgba(255,255,255,0.4);text-transform:uppercase;margin-bottom:4px">You both get</div>
+            <div style="font-size:1.4rem;font-weight:700;color:#f4b400;line-height:1">₹200</div>
+            <div style="font-size:0.42rem;color:rgba(255,255,255,0.3);margin-top:3px">Cash bonus per referral</div>
+          </div>
+          <div style="width:100%">
+            <div style="font-size:0.42rem;color:rgba(255,255,255,0.3);text-transform:uppercase;margin-bottom:5px">Your Referral Code</div>
+            <div style="background:rgba(255,255,255,0.07);border:1px dashed rgba(255,255,255,0.2);border-radius:8px;padding:8px;display:flex;justify-content:space-between;align-items:center">
+              <span style="font-size:0.75rem;font-weight:700;color:#fff;letter-spacing:2px">RHL-9842</span>
+              <span style="font-size:0.5rem;color:#1a73e8;font-weight:600;cursor:pointer">COPY</span>
+            </div>
+          </div>
+          <div style="width:100%">
+            <div style="font-size:0.42rem;color:rgba(255,255,255,0.3);text-transform:uppercase;margin-bottom:5px">Your Earnings</div>
+            <div style="display:flex;gap:6px">
+              <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:8px;padding:8px;text-align:center">
+                <div style="font-size:0.75rem;font-weight:700;color:#34a853">12</div>
+                <div style="font-size:0.42rem;color:rgba(255,255,255,0.4)">Referred</div>
+              </div>
+              <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:8px;padding:8px;text-align:center">
+                <div style="font-size:0.75rem;font-weight:700;color:#f4b400">₹2,400</div>
+                <div style="font-size:0.42rem;color:rgba(255,255,255,0.4)">Earned</div>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;gap:5px;width:100%">
+            <div style="flex:1;background:#25d366;border-radius:16px;padding:6px;text-align:center;font-size:0.52rem;font-weight:600;color:#fff;cursor:pointer">📱 WhatsApp</div>
+            <div style="flex:1;background:rgba(255,255,255,0.1);border-radius:16px;padding:6px;text-align:center;font-size:0.52rem;font-weight:500;color:rgba(255,255,255,0.7);cursor:pointer">🔗 Copy Link</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end scroll -->
+  </div><!-- end screenshots-section -->
+
+  <!-- TWO COLUMN BELOW -->
+  <div class="two-col">
+    <div>
+      <!-- ABOUT -->
+      <div class="card-section reveal">
+        <div class="section-heading">About this game</div>
+        <p class="about-text">
+          <b>RHL Rummy</b> is India's most trusted skill-based card game app, where you play classic Rummy against real players and win real cash prizes. The Supreme Court of India has confirmed Rummy as a game of skill — making it 100% legal to play for cash.
+        </p>
+        <p class="about-text">
+          Choose from <b>Points Rummy</b>, <b>Deals Rummy</b>, and <b>Pool Rummy</b> across hundreds of tables with buy-ins starting from just ₹10. Compete in daily tournaments with prize pools up to ₹25 Lakh. Withdraw your winnings instantly to UPI, PhonePe, Paytm, or your bank.
+        </p>
+        <p class="about-text">
+          New players receive a <b>₹500 Welcome Bonus</b> on their first deposit. Refer friends and earn ₹200 cash for every successful referral — no limit.
+        </p>
+        <button class="read-more">Read more ›</button>
+
+        <div style="margin-top:20px">
+          <div class="section-heading">Achievements</div>
+          <div class="achieve-grid">
+            <div class="achieve-card">
+              <div class="achieve-icon">🏆</div>
+              <div><div class="achieve-title">Best Card Game 2024</div><div class="achieve-sub">India Mobile Gaming Awards</div></div>
+            </div>
+            <div class="achieve-card">
+              <div class="achieve-icon">⭐</div>
+              <div><div class="achieve-title">Editor's Choice</div><div class="achieve-sub">Play Store India</div></div>
+            </div>
+            <div class="achieve-card">
+              <div class="achieve-icon">🔒</div>
+              <div><div class="achieve-title">100% Fair Play</div><div class="achieve-sub">Certified Anti-Cheat</div></div>
+            </div>
+            <div class="achieve-card">
+              <div class="achieve-icon">💳</div>
+              <div><div class="achieve-title">Fastest Payout</div><div class="achieve-sub">Under 5 minutes</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:20px">
+          <div class="section-heading">Tags</div>
+          <div class="tags">
+            <span class="tag">Rummy</span>
+            <span class="tag">Card Game</span>
+            <span class="tag">Win Cash</span>
+            <span class="tag">Skill Game</span>
+            <span class="tag">Tournament</span>
+            <span class="tag">UPI Withdrawal</span>
+            <span class="tag">Multiplayer</span>
+            <span class="tag">Points Rummy</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- WHAT'S NEW -->
+      <div class="card-section reveal">
+        <div class="section-heading">What's new</div>
+        <div class="whats-new-version">Version 4.2.1 · Updated 3 days ago</div>
+        <ul class="whats-new-list">
+          <li>New Tournament formats with ₹50 Lakh weekly prize pool</li>
+          <li>Improved game speed — 40% faster card dealing</li>
+          <li>UPI instant withdrawal now available 24/7</li>
+          <li>New Refer & Earn dashboard with real-time tracking</li>
+          <li>Bug fixes and performance improvements</li>
+        </ul>
+      </div>
+
+      <!-- RATINGS -->
+      <div class="card-section reveal">
+        <div class="section-heading">Ratings & reviews</div>
+        <div class="rating-overview">
+          <div class="rating-big">
+            <div class="num">4.8</div>
+            <div class="stars">★★★★★</div>
+            <div class="count">1.2L ratings</div>
+          </div>
+          <div class="rating-bars">
+            <div class="rating-bar-row"><span class="bar-label">5</span><div class="bar-track"><div class="bar-fill" style="width:82%"></div></div></div>
+            <div class="rating-bar-row"><span class="bar-label">4</span><div class="bar-track"><div class="bar-fill" style="width:11%"></div></div></div>
+            <div class="rating-bar-row"><span class="bar-label">3</span><div class="bar-track"><div class="bar-fill" style="width:4%"></div></div></div>
+            <div class="rating-bar-row"><span class="bar-label">2</span><div class="bar-track"><div class="bar-fill" style="width:2%"></div></div></div>
+            <div class="rating-bar-row"><span class="bar-label">1</span><div class="bar-track"><div class="bar-fill" style="width:1%"></div></div></div>
+          </div>
+        </div>
+
+        <div class="review">
+          <div class="review-top">
+            <div class="review-avatar" style="background:#1a73e8">R</div>
+            <div class="review-name">Rajesh Kumar</div>
+            <div class="review-date">2 days ago</div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">Withdrew ₹8,400 to my UPI in literally 3 minutes. I was shocked. Never seen such fast payouts in any rummy app. RHL is the real deal. The tournaments are also super exciting.</p>
+          <div class="review-helpful">23 people found this helpful <button>👍 Helpful</button></div>
+        </div>
+
+        <div class="review">
+          <div class="review-top">
+            <div class="review-avatar" style="background:#34a853">P</div>
+            <div class="review-name">Priya Mehta</div>
+            <div class="review-date">5 days ago</div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">I've tried 6 rummy apps. RHL has the cleanest interface and no bots — you actually feel like you're playing against real people. The anti-cheat system is excellent.</p>
+          <div class="review-helpful">18 people found this helpful <button>👍 Helpful</button></div>
+        </div>
+
+        <div class="review">
+          <div class="review-top">
+            <div class="review-avatar" style="background:#ea4335">A</div>
+            <div class="review-name">Arjun Sharma</div>
+            <div class="review-date">1 week ago</div>
+          </div>
+          <div class="review-stars">★★★★☆</div>
+          <p class="review-text">Daily tournaments are great — I play 1 hour after work and made ₹22,000 last month. The referral bonus also helped. Would give 5 stars if they added more table limits.</p>
+          <div class="review-helpful">11 people found this helpful <button>👍 Helpful</button></div>
         </div>
       </div>
     </div>
-    <div class="testi">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">"I've tried 6 rummy apps. RHL has the cleanest interface and no bots — you actually feel like you're playing against real people who know the game."</p>
-      <div class="testi-author">
-        <div class="testi-avatar">PM</div>
-        <div>
-          <div class="testi-name">Priya M.</div>
-          <div class="testi-loc">Ahmedabad, Gujarat</div>
+
+    <!-- SIDEBAR -->
+    <div>
+      <div class="sidebar-section reveal">
+        <div class="badge-verified">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          100% Verified Legal App
+        </div>
+        <div style="margin-top:14px">
+          <h3>App info</h3>
+          <div class="info-row">
+            <span class="info-label">Developer</span>
+            <span class="info-val" style="color:#1a73e8">RHL Games Pvt. Ltd.</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Updated</span>
+            <span class="info-val">May 23, 2026</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Size</span>
+            <span class="info-val">48 MB</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Installs</span>
+            <span class="info-val">10,00,000+</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Version</span>
+            <span class="info-val">4.2.1</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Requires</span>
+            <span class="info-val">Android 6.0+ / iOS 13+</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Age rating</span>
+            <span class="info-val">18+</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">In-app purchases</span>
+            <span class="info-val">₹10 – ₹1,00,000</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-section reveal">
+        <h3>Similar games</h3>
+        <div class="similar-grid">
+          <div class="sim-app">
+            <div class="sim-icon" style="background:#ff6b00">🎴</div>
+            <div class="sim-name">Teen Patti Gold</div>
+            <div class="sim-rating">★ 4.5</div>
+          </div>
+          <div class="sim-app">
+            <div class="sim-icon" style="background:#1a73e8">♟️</div>
+            <div class="sim-name">Chess Cash</div>
+            <div class="sim-rating">★ 4.6</div>
+          </div>
+          <div class="sim-app">
+            <div class="sim-icon" style="background:#34a853">🏏</div>
+            <div class="sim-name">Dream11</div>
+            <div class="sim-rating">★ 4.7</div>
+          </div>
+          <div class="sim-app">
+            <div class="sim-icon" style="background:#9334e6">🃏</div>
+            <div class="sim-name">A23 Rummy</div>
+            <div class="sim-rating">★ 4.4</div>
+          </div>
+          <div class="sim-app">
+            <div class="sim-icon" style="background:#ea4335">🎲</div>
+            <div class="sim-name">MPL Games</div>
+            <div class="sim-rating">★ 4.3</div>
+          </div>
+          <div class="sim-app">
+            <div class="sim-icon" style="background:#f9ab00">🥇</div>
+            <div class="sim-name">WinZO Gold</div>
+            <div class="sim-rating">★ 4.2</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-section reveal">
+        <h3>Contact developer</h3>
+        <div class="info-row" style="cursor:pointer">
+          <span class="info-label">📧 Email support</span>
+          <span class="info-val" style="color:#1a73e8">support@rhlrummy.com</span>
+        </div>
+        <div class="info-row" style="cursor:pointer">
+          <span class="info-label">📱 WhatsApp</span>
+          <span class="info-val" style="color:#25d366">+91 98765 43210</span>
+        </div>
+        <div class="info-row" style="cursor:pointer">
+          <span class="info-label">🌐 Website</span>
+          <span class="info-val" style="color:#1a73e8">rhlrummy.com</span>
+        </div>
+        <div class="info-row" style="cursor:pointer">
+          <span class="info-label">📜 Privacy Policy</span>
+          <span class="info-val" style="color:#1a73e8">View →</span>
         </div>
       </div>
     </div>
-    <div class="testi">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">"The daily tournaments are great — I play 1 hour after work and made ₹22,000 last month. The referral bonus also helped get my friends hooked!"</p>
-      <div class="testi-author">
-        <div class="testi-avatar">AS</div>
-        <div>
-          <div class="testi-name">Arjun S.</div>
-          <div class="testi-loc">Indore, MP</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+  </div><!-- end two-col -->
 
-<!-- LEGAL -->
-<div class="legal-section reveal">
-  <div class="legal-badge">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-    100% Legal in India
-  </div>
-  <p class="legal-text">
-    RHL Rummy is a skill-based game. The Supreme Court of India has confirmed that Rummy is a game of skill, not chance, making it legal to play for cash in most Indian states. Players must be 18 years or older. Not available in Andhra Pradesh, Telangana, and Karnataka. Please play responsibly. T&C apply.
-  </p>
-</div>
-
-<hr class="divider">
-
-<!-- CTA BOTTOM -->
-<div class="cta-bottom reveal">
-  <h2>Ready to<br><span>Win Big?</span></h2>
-  <p>Join 50,000+ players already winning on RHL Rummy. Download free today.</p>
-  <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
-    <a href="#" class="btn-primary">
-      <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.7 9.05 7.42c1.42.07 2.41.74 3.24.8 1.23-.24 2.41-.93 3.73-.84 1.58.13 2.77.71 3.54 1.8-3.24 1.94-2.7 6.11.5 7.27-.57 1.46-1.3 2.91-3.01 3.83zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
-      Download on App Store
-    </a>
-    <a href="#" class="btn-primary" style="background:var(--dark4);color:var(--text);border:1.5px solid rgba(240,180,41,0.3);">
-      <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76a2.17 2.17 0 0 1-.59-1.58V1.82A2.17 2.17 0 0 1 3.18.24L3.27.18l12.29 12.29v.08L3.27 24.06l-.09-.3zM20.03 16.2l-3.24-3.24 1.07-1.07 3.52 2.03a1.26 1.26 0 0 1 0 2.21l-3.52 2.03-1.08-1.08 3.25-1.88zM3.45 24.06L15.76 11.76l2.23 2.23-11 6.35c-.6.34-1.26.27-1.69-.1l-.02-.01zM17.99 10.01L15.76 12.24 3.45.06l.12-.09c.43-.37 1.09-.44 1.7-.1l12.72 10.14z"/></svg>
-      Get on Google Play
-    </a>
-  </div>
-</div>
+</div><!-- end main -->
 
 <!-- FOOTER -->
-<footer>
-  <div class="f-logo">RHL <span>Rummy</span></div>
-  <p>RHL Rummy is operated by [Your Company Name] · CIN: XXXXXXXXXX · GST: XXXXXXXXXX</p>
-  <p>Rummy is a game of skill. Playing for real money is legal for adults 18+ in most Indian states.</p>
-  <div class="f-links">
+<div class="page-footer">
+  <div class="footer-links">
     <a href="#">Privacy Policy</a>
     <a href="#">Terms & Conditions</a>
     <a href="#">Responsible Gaming</a>
-    <a href="#">Contact Us</a>
     <a href="#">Refund Policy</a>
+    <a href="#">Contact Us</a>
+    <a href="#">About RHL Games</a>
   </div>
-  <p style="margin-top:1.5rem; font-size:0.72rem;">© 2025 RHL Rummy. All rights reserved. · 18+ Only · Play Responsibly</p>
-</footer>
+  <p class="footer-legal">
+    RHL Rummy is a skill-based card game. The Supreme Court of India has ruled Rummy a game of skill, making it legal in most states. Not available in Andhra Pradesh, Telangana, and Karnataka. Players must be 18 years or older. Please play responsibly. © 2026 RHL Games Pvt. Ltd. All rights reserved.
+  </p>
+</div>
 
-<!-- STICKY DOWNLOAD BAR -->
-<div class="sticky-dl">
-  <a href="#">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.7 9.05 7.42c1.42.07 2.41.74 3.24.8 1.23-.24 2.41-.93 3.73-.84 1.58.13 2.77.71 3.54 1.8-3.24 1.94-2.7 6.11.5 7.27-.57 1.46-1.3 2.91-3.01 3.83zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
-    iOS
-  </a>
-  <a href="#">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76a2.17 2.17 0 0 1-.59-1.58V1.82A2.17 2.17 0 0 1 3.18.24L3.27.18l12.29 12.29v.08L3.27 24.06l-.09-.3zM20.03 16.2l-3.24-3.24 1.07-1.07 3.52 2.03a1.26 1.26 0 0 1 0 2.21l-3.52 2.03-1.08-1.08 3.25-1.88zM3.45 24.06L15.76 11.76l2.23 2.23-11 6.35c-.6.34-1.26.27-1.69-.1l-.02-.01zM17.99 10.01L15.76 12.24 3.45.06l.12-.09c.43-.37 1.09-.44 1.7-.1l12.72 10.14z"/></svg>
-    Android
-  </a>
+<!-- STICKY INSTALL BAR (appears on scroll) -->
+<div class="install-bar" id="installBar">
+  <div class="install-bar-icon">🃏</div>
+  <div class="install-bar-info">
+    <div class="install-bar-name">RHL Rummy</div>
+    <div class="install-bar-sub">Free · 18+ · ₹500 Welcome Bonus</div>
+  </div>
+  <div class="install-bar-btns">
+    <a href="#" class="btn-install android" style="height:36px;font-size:0.8rem;padding:0 16px">Android</a>
+    <a href="#" class="btn-install" style="height:36px;font-size:0.8rem;padding:0 16px">iOS</a>
+  </div>
 </div>
 
 <script>
-  const reveals = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-  }, { threshold: 0.1 });
-  reveals.forEach(el => io.observe(el));
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);} });
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+const bar = document.getElementById('installBar');
+window.addEventListener('scroll',()=>{
+  if(window.scrollY>300) bar.classList.add('show');
+  else bar.classList.remove('show');
+});
 </script>
 </body>
 </html>
